@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+</head>
+<body>
+<script>
+    var auth = (function(){
+        var observer = {};
+        //library
+        function register(o){
+            var keys = Object.keys(o);
+            for(var i = 0; i < keys.length; i++){
+                observer[keys[i]] = o[keys[i]];
+            }
+            console.log(observer);
+        }
+        return {
+            register : register
+        }
+    }());
+
+    //host code
+    auth.register({
+        signUp : function(response){},
+        signIn :  function(response){},
+        google : function(response){},
+        facebook : function(response){},
+        naver : function(response){}
+    });
+</script>
+</body>
+</html>

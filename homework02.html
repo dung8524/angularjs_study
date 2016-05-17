@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>queryString</title>
+</head>
+<body>
+    <script>
+        function queryString(data){
+            var k = Object.keys(data);
+            var s = '';
+            for(var i = (k.length-1); i >= 0; i--){
+                s += k[i] + '=' + encodeURIComponent(data[k[i]]);
+                if(i != 0){
+                    s += '&';
+                }
+            }
+            return s;
+        }
+
+        var result = queryString({
+            userEmail : 'suho.kim2@gmail.com',
+            userType : 2,
+            dsLoginType : 4,
+            nmLoginType : 'C',
+            sampleData : 'sample'
+        });
+        console.log(result);
+        //'nmLoginType=C&dsLoginType=4&userType=2&userEmail=suho.kim@gmail.com'
+    </script>
+</body>
+</html>
